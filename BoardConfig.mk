@@ -144,11 +144,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
 
-# Sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Treble
 BOARD_VNDK_VERSION := current
