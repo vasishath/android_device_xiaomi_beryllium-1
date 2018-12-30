@@ -1,0 +1,51 @@
+
+# Custom HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845    					u:object_r:hal_light_sdm845_exec:s0
+
+# Input nodes
+/sys/devices/platform/soc/a98000\.i2c/i2c-3/3-[0-9a-f]+(/input/input[0-9])?/wake_gesture 				u:object_r:sysfs_touchpanel:s0
+
+# Power HAL
+/system/lib64/hw/power\.qcom\.so    																	u:object_r:vendor_file:s0
+
+# Persist files
+/mnt/vendor/persist/audio(/.*)?																			u:object_r:persist_audio_file:s0
+
+# Fingerprint
+/data/vendor/fpc(/.*)?																					u:object_r:fingerprint_data_file:s0
+/data/vendor/syna(/.*)?																					u:object_r:fingerprint_data_file:s0
+/data/vendor/goodix(/.*)?																				u:object_r:fingerprint_data_file:s0
+/dev/goodix_fp																							u:object_r:fingerprint_device:s0
+/dev/vfsspi																								u:object_r:fingerprint_device:s0
+
+# Charge-logger
+/(vendor|system/vendor)/bin/charge_logger																u:object_r:charge_logger_exec:s0
+
+# Remosaic_daemon
+/(vendor|system/vendor)/bin/remosaic_daemon																u:object_r:remosaic_daemon_exec:s0
+
+# Xiaomi Display feature
+/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature@1\.0-service				u:object_r:hal_displayfeature_xiaomi_default_exec:s0
+
+# Power supply
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi1-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qpnp,fg/power_supply/
+bms(/.*)?	                     																		u:object_r:sysfs_battery_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi1-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb2/power_supply/battery(/.*)? 																						  u:object_r:sysfs_battery_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi1-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb2/power_supply/
+usb(/.*)?																								u:object_r:sysfs_usb_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi1-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb2/power_supply/
+main(/.*)?																								u:object_r:sysfs_usb_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb2/power_supply/
+main(/.*)?																								u:object_r:sysfs_usb_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]/spmi1-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb2/power_supply/
+pc_port(/.*)?																							u:object_r:sysfs_usb_supply:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+.i2c/i2c-[0-9]+/[0-9]+-[0-9a-z]+/[a-z0-9]+.i2c:qcom,[a-z0-9]+@[a-z]:qcom,smb[0-9]+-charger@[0-9]+/power_supply/parallel(/.*)?																							 u:object_r:sysfs_usb_supply:s0
+/sys/devices/virtual/hsicctl/hsicctl1[0-9]/modem_wait												    u:object_r:sysfs_hsic_modem_wait:s0
+/sys/devices/msm_dwc3/power_supply/usb(/.*)?															u:object_r:sysfs_usb_supply:s0
+
+# Input files
+/vendor/usr/idc(/.*)?                               													u:object_r:idc_file:s0
+/vendor/usr/keylayout(/.*)?                        														u:object_r:keylayout_file:s0
+
+# Thermal engine
+/data/vendor/thermal(/.*)?																				u:object_r:thermal_data_file:s0

@@ -1,0 +1,8 @@
+type hal_displayfeature_xiaomi_default, coredomain, domain;
+type hal_displayfeature_xiaomi_default_exec, exec_type, vendor_file_type, file_type;
+
+#Allow for transition from init domain to hal_displayfeature_xiaomi_default
+init_daemon_domain(hal_displayfeature_xiaomi_default)
+
+#Add hal_displayfeature_xiaomi_default as hwservice
+add_hwservice(hal_displayfeature_xiaomi_default, hal_displayfeature_xiaomi_hwservice)

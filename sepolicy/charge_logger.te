@@ -1,0 +1,16 @@
+#integrated process
+type charge_logger, domain;
+type charge_logger_exec, exec_type, vendor_file_type, file_type;
+
+#started by init
+init_daemon_domain(charge_logger)
+
+#charge logger will use uevent, visit sysfs and use the wake lock
+allow charge_logger self:netlink_kobject_uevent_socket { read create setopt bind };
+allow charge_logger{
+    sysfs_wake_lock
+    sysfs_battery_supply
+}:file rw_file_perms;
+
+allow charge_logger sysfs_battery_supply:dir r_dir_perms;
+r_dir_file(charge_logger, sysfs_usb_supply)
